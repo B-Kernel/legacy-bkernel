@@ -26,9 +26,9 @@ error_codes = {
 # Print error function for easy re-use; make sure to use the correct error code
 def print_error(error_code, print_error=True):
   try:
-    error_message = f"Error code {error_code}: {error_codes[error_code]}"
+    error_message = "Error code {error_code}: {error_codes[error_code]}"
   except:
-    raise Exception(f"The error code, {error_code}, is invalid.")
+    raise Exception("The error code, {error_code}, is invalid.")
 
   if (print_error == True):
     print(error_message)
@@ -83,6 +83,10 @@ import time
 #Bootloader
 def Bootloader():
   if booted == False:
+    print("Booting B Kernel...")
+    time.sleep(random.randint(2, 5))
+    os.system('cls')
+    print("Welcome to B Kernel")
     print(f"Booting B Kernel...")
     time.sleep(random.randint(2, 5))
     os.system('cls')
@@ -196,7 +200,7 @@ while booted == True:
         if not is_exec(echo):
           line_prepender(echo, "#!/usr/bin/env node")
         if platform == "linux" or platform == "linux2":
-          os.system(f"chmod +x {echo}")
+          os.system(str(chmod +x) + {echo})
         p = subprocess.Popen(["C:\\Program Files\\nodejs\\node.exe", echo])
         # cmancode = subprocess.Popen(["javascript", echo]) #Runs JS Code!
       except OSError as err:
