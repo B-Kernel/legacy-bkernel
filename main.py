@@ -87,6 +87,10 @@ def Bootloader():
     time.sleep(random.randint(2, 5))
     os.system('cls')
     print("Welcome to B Kernel")
+    print(f"Booting B Kernel...")
+    time.sleep(random.randint(2, 5))
+    os.system('cls')
+    print(f"Welcome to B Kernel")
     return True
   else:
     print_error("0x001")
