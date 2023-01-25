@@ -3,8 +3,6 @@ import shutil
 import subprocess
 from sys import platform
 
-os.system('color')
-
 # Pre-determined variables
 vardir = [
   ["Bootloader.fn","Registry.fn"],
@@ -15,18 +13,6 @@ vardir = [
 ]
 booted = False
 location = 0
-
-# Colors | For more help; see https://stackoverflow.com/questions/287871/how-do-i-print-colored-text-to-the-terminal
-class bcolors:
-    HEADER = '\033[95m'
-    OKBLUE = '\033[94m'
-    OKCYAN = '\033[96m'
-    OKGREEN = '\033[92m'
-    WARNING = '\033[93m'
-    FAIL = '\033[91m'
-    ENDC = '\033[0m'
-    BOLD = '\033[1m'
-    UNDERLINE = '\033[4m'
 
 # The error codes are in this dictionary for easy re-use; add new ones whenever you wish :)
 error_codes = {
@@ -40,9 +26,9 @@ error_codes = {
 # Print error function for easy re-use; make sure to use the correct error code
 def print_error(error_code, print_error=True):
   try:
-    error_message = f"{bcolors.FAIL}Error code {error_code}: {error_codes[error_code]}{bcolors.ENDC}"
+    error_message = "Error code {error_code}: {error_codes[error_code]}"
   except:
-    raise Exception(f"The error code, {error_code}, is invalid.")
+    raise Exception("The error code, {error_code}, is invalid.")
 
   if (print_error == True):
     print(error_message)
@@ -97,10 +83,10 @@ import time
 #Bootloader
 def Bootloader():
   if booted == False:
-    print(f"{bcolors.BOLD}{bcolors.WARNING}Booting B Kernel...{bcolors.ENDC}")
+    print("Booting B Kernel...")
     time.sleep(random.randint(2, 5))
     os.system('cls')
-    print(f"{bcolors.WARNING}Welcome to {bcolors.BOLD}B Kernel{bcolors.ENDC}")
+    print("Welcome to B Kernel")
     return True
   else:
     print_error("0x001")
@@ -210,7 +196,7 @@ while booted == True:
         if not is_exec(echo):
           line_prepender(echo, "#!/usr/bin/env node")
         if platform == "linux" or platform == "linux2":
-          os.system(f"chmod +x {echo}")
+          os.system(str(chmod +x) + {echo})
         p = subprocess.Popen(["C:\\Program Files\\nodejs\\node.exe", echo])
         # cmancode = subprocess.Popen(["javascript", echo]) #Runs JS Code!
       except OSError as err:
